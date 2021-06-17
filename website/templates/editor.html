@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+<textarea id="ta-editor"></textarea>
+<div onclick="save_text()" class="btn btn-success">Save</div>
+<script>
+    function save_text(){
+        const text = document.getElementById('ta-editor').value;
+        console.log(text);
+        $.ajax({
+            type : "POST",
+            url : '{{ url_for('main_bp.save', file_id=file_id) }}',
+            dataType: "json",
+            data: JSON.stringify({"text": text}),
+            contentType: 'application/json;charset=UTF-8',
+            success: function (data) {
+                if(data=="200")
+                    alert("Text Saved Successfully!");
+                console.log(data);
+            }
+        });
+    }
+</script>
+{% endblock %}

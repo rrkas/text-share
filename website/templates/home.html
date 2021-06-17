@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<h1>Welcome to <span class="text-share-home-box">text-share</span></h1>
+<p>
+
+    Create your own sharable text!<br>
+
+</p>
+<a href="{{ url_for('main_bp.editor', file_id=generate_file_id()) }}"><div class="btn btn-info">Create</div></a>
+{% endblock %}
