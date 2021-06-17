@@ -2,7 +2,14 @@
 {% block content %}
 <textarea id="ta-editor"></textarea>
 <div onclick="save_text()" class="btn btn-success">Save</div>
+<a href="{{ url_for('main_bp.view', file_id=file_id) }}"><div class="btn btn-info">Done</div></a>
+
 <script>
+    console.log(`{{ text }}`);
+    console.log(typeof `{{ text }}`);
+    if(String(`{{ text }}`).length > 0){
+        document.getElementById('ta-editor').value = `{{ text }}`;
+    }
     function save_text(){
         const text = document.getElementById('ta-editor').value;
         console.log(text);

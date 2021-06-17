@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+<style>
+    #viewer-div{
+        white-space: pre-wrap;
+    }
+</style>
+<div id="viewer-div" class="text-view">{{ text }}</div>
+<a href="{{ url_for('main_bp.editor', file_id=file_id) }}"><div class="btn btn-warning mt-2">Edit</div></a>
+{% endblock %}
